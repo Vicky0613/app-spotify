@@ -1,20 +1,50 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons>
+            <ion-menu-button></ion-menu-button>
+            <h1>Artistas</h1>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+        <div class="container-card">
+        <ion-card *ngFor="let artist of artists" (click)="showSongs(artist)">
+            <img [src]="artist.image" alt="Artist">
+            <ion-card-header>
+                <ion-card-title>{{artist.name}}</ion-card-title>
+                <ion-card-subtitle><ion-icon name="heart-circle-outline"></ion-icon>{{artist.followers}}</ion-card-subtitle>
+            </ion-card-header>
+            
+            <!-- <ion-card-content>
+                Here's a small text description for the card content. Nothing more, nothing less.
+            </ion-card-content> -->
+            </ion-card>
+        </div>
 </ion-content>
+
+<ion-footer>
+    <!-- <ion-text color="danger">
+        <h2>{{song.name || 'Aquí aparecerán nuestra canción'}}</h2>
+    </ion-text> -->
+
+    <ion-grid>
+        <ion-row>
+            <ion-col class="name-music">
+                <ion-icon name="heart"></ion-icon>
+                <ion-text>{{song.name || "Aun no has seleccionado una canción"}}</ion-text>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-progress-bar [value]="newTime || 0"></ion-progress-bar>
+    <ion-grid>
+        <ion-row>
+            <ion-col class="control-play">
+                <ion-col class="ion-text-start">{{parseTime(currentSong?.currentTime) || "0:00"}}</ion-col>
+                <ion-icon name="play-circle" (click)="play()" *ngIf="!song.playing"></ion-icon>
+                <ion-icon name="pause" (click)="pause()" *ngIf="song.playing"></ion-icon>
+                <ion-col class="ion-text-end">{{parseTime(currentSong?.duration) || "0:00"}}</ion-col>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-footer>

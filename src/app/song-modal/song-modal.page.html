@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-buttons>
+    <ion-button (click)="closeModal()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-avatar>
+    <img [src]="artist.image" alt="Artist">
+  </ion-avatar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let song of artist.songs" (click)="selectedSong(song)">
+        <ion-icon name="musical-note-outline"></ion-icon><ion-label>{{song.name}}</ion-label>
+        <ion-icon name="play-circle"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

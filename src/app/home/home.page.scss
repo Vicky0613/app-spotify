@@ -1,27 +1,69 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+ion-content {
+    --background: #121212;
+    --color: #fff;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-toolbar {
+    --background: #121212;
+    --padding-bottom: 8px;
+    --padding-top: 8px;
+    display: flex;
+    align-items: center;
+    * {
+        color: #fff;
+    }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+h1 {
+    margin: 0;
 }
 
-#container a {
-  text-decoration: none;
+.container-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
+img {
+    width: 250px;
+    height: 200px;
+}
+
+ion-icon{
+    font-size: 18px;
+}
+
+ion-card {
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+}
+
+ion-card-subtitle {
+    display: flex;
+    align-items: center;
+}
+
+.control-play {
+    display: flex;
+    justify-content: space-between;
+  }
+
+.name-music {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+ion-grid {
+    background: #000;
+    * {
+        color: #fff;
+    }
+}
+
+ion-icon[name="play-circle"] {
+    cursor: pointer;
+    color: #1DB954; /* Cambia el color a rojo */
+    font-size: 36px; /* Cambia el tamaño de la fuente */
+    /* Otros estilos que quieras aplicar */
+  }

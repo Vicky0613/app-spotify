@@ -1,0 +1,72 @@
+<ion-content class="ion-justify-content-center">
+  <div class="box-content">
+
+    <figure>
+      <img src="https://imgs.search.brave.com/XTekfaIKD4GIFWmoHxuA9k5LkWZULhhOZMQUNTmb6hg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bG9nby53aW5lL2Ev/bG9nby9TcG90aWZ5/L1Nwb3RpZnktSWNv/bi1XaGl0ZS1EYXJr/LUJhY2tncm91bmQt/TG9nby53aW5lLnN2/Zw" alt="Login" width="130px">
+      <h1>Iniciar sesión</h1>
+    </figure>
+  
+    <form [formGroup]="loginForm" class="form-group" (ngSubmit)="(login(loginForm.value))">
+      <ion-item>
+        <ion-input label="Email" labelPlacement="floating" placeholder="Correo electronico"  type="email" formControlName="email" required></ion-input>
+      </ion-item>
+  
+      <div>
+        <ng-container *ngFor="let validation of validation_message.email">
+          <div *ngIf="(
+            loginForm.get('email')?.hasError(validation.type)) && 
+            loginForm.get('email')?.dirty">
+            <span class="error">{{validation.message}}</span>
+          </div>
+        </ng-container>
+      </div>
+  
+      <ion-item>
+        <ion-input label="Contraseña" labelPlacement="floating" placeholder="Escribe tu contraseña"  type="password" formControlName="password" required></ion-input>
+      </ion-item>
+  
+      
+      <div>
+        <ng-container *ngFor="let validation of validation_message.password">
+          <div *ngIf="(
+            loginForm.get('password')?.hasError(validation.type)) && 
+            loginForm.get('password')?.dirty">
+            <span class="error">{{validation.message}}</span>
+          </div>
+        </ng-container>
+      </div>
+  
+      <ion-button
+      type="submit"
+      [disabled]="!loginForm.valid"
+      shape="round"
+      >
+        Iniciar Sesión
+      </ion-button>
+  
+      <ion-toast
+      [isOpen]="isToastOpen"
+      [message]="toastMessage"
+      [duration]="5000"s
+      (didDismiss)="setOpen(false)"
+    ></ion-toast>
+    </form>
+  
+    <!-- <ion-button
+    routerLink="/register"
+      shape="round"
+      color="primary"
+      shape="round"
+    >
+      Registrarse
+    </ion-button> -->
+
+    <ion-text>
+      <p>¿No tienes cuenta?</p>
+    </ion-text>
+    <ion-text>
+      <a  routerLink="/register">Regístrate</a>
+    </ion-text>
+  </div>  
+
+</ion-content>

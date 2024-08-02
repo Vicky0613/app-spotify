@@ -1,0 +1,10 @@
+<ion-icon name="arrow-back-outline" (click)="navigateToHome()"></ion-icon>
+<ion-content>
+  <swiper-container [loop]="true">
+    <swiper-slide *ngFor="let item of itemsSlider">
+       <h1>{{item.title}}</h1>
+       <img [src]="item.urlImage" alt="">
+       <p>{{item.description}}</p>
+    </swiper-slide>
+  </swiper-container>
+</ion-content>

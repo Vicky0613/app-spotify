@@ -1,0 +1,51 @@
+ion-header {
+    background:#000;
+    padding: 8px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ion-content {
+    --background: linear-gradient(to bottom, black, grey);
+    --color: #fff;
+}
+
+ion-list {
+    background: transparent !important;
+  }
+  
+  ion-item {
+    --ion-background-color: transparent !important;
+    background-color: transparent !important;
+    --ion-text-color: #fff
+    --ion-item-border-color: transparent !important;
+    --ion-border-color: transparent !important
+  }
+  
+  ion-item::part(native) {
+    background: transparent !important;
+  }
+
+  ion-avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  ion-icon[name="play-circle"] {
+    color: #1DB954; /* Cambia el color a rojo */
+    font-size: 32px; /* Cambia el tamaño de la fuente */
+    cursor: pointer; /*;
+    /* Otros estilos que quieras aplicar */
+  }
+  ion-icon[name="arrow-back"] {
+    color: #fff; /* Cambia el color a rojo */
+    font-size: 32px; /* Cambia el tamaño de la fuente */
+    /* Otros estilos que quieras aplicar */
+  }
+
+  ion-buttons {
+    justify-content: flex-start;
+    width: 100vw;
+  }
